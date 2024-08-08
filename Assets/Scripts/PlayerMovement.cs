@@ -50,13 +50,18 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Animação Pular
-        if(Input.GetKey(KeyCode.Space))
+    if(Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
-            animPlayer.SetLayerWeight(2,1);
+            rb.AddForce(transform.up * forcaPulo,ForceMode2D.Impulse);
+            isJumping = true;
         }
-        else
+    } 
+
+     private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if(other.gameObject.CompareTag("Chão"))
         {
-            animPlayer.SetLayerWeight(2,0);
+            isJumping = false;
         }
     }
 }

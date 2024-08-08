@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -313,14 +312,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 506077376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2414ff1524ae1c843979a6ffe937870f, type: 3}
+  m_Script: {fileID: 11500000, guid: b89b075734a082849a263bf1fdbcba04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animPlayer: {fileID: 0}
-  sprite: {fileID: 0}
-  moveH: 0
-  velocidade: 0
-  forcaPulo: 0
+  moveH: 8
+  velocidade: 8
+  forcaPulo: 4
   isJumping: 0
   comVida: 1
   Money: 0
