@@ -5,15 +5,16 @@ using UnityEngine;
 public class CameraSegue : MonoBehaviour
 {
     public GameObject player;
-    public float pX;
-    public float pY;
     public Vector3 posInicial;
+    public float limiteX1;
+    public float limiteX2;
+    public float limiteY1;
+    public float limiteY2;
 
     // Start is called before the first frame update
     void Start()
     {
         posInicial = transform.position;
-        player = GameObject.FindWithTag("Play");
     }
 
     // Update is called once per frame
@@ -21,18 +22,22 @@ public class CameraSegue : MonoBehaviour
     {
         if(player != null)
         {
-            pX = player.transform.position.x;
-            pY = player.transform.position.y;
-        }
-        
-        if(pX > -3 && pY > -1)
-        {
-            transform.position = new Vector3(pX, pY, -1);
+            if(player.transform.position.x >= limiteX1 && 
+                player.transform.position.y <= limiteY1 && 
+                    player.transform.position.x <= limiteX2 && 
+                        player.transform.position.y >= limiteY2)
+            {
+                transform.position = new Vector3(
+                                    player.transform.position.x,
+                                    player.transform.position.y,
+                                    -3);
+            }
+            
         }
 
         if(player == null)
         {
-            player = GameObject.FindWithTag("Play");
+            player = GameObject.FindGameObjectWithTag("Player");
             transform.position = posInicial;
         }
         

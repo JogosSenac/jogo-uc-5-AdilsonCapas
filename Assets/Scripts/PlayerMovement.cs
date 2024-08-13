@@ -49,13 +49,15 @@ public class PlayerMovement : MonoBehaviour
             animPlayer.SetLayerWeight(3,0);
         }
 
+        
+
         //Animação Pular
     if(Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
             rb.AddForce(transform.up * forcaPulo,ForceMode2D.Impulse);
             isJumping = true;
         }
-    } 
+    }
 
      private void OnCollisionEnter2D(Collision2D other) 
     {

@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player2 : MonoBehaviour
+public class Player : MonoBehaviour
 {
     //A T E N Ç Ã O - CONSERTAR O CÓDIGO
 
