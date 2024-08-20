@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Inimigo: MonoBehaviour
 {
-    public Transform jogador;  // Referência ao jogador
+    /*public Transform jogador;  // Referência ao jogador
     public float velocidade = 2f;  // Velocidade de movimento do inimigo
 
     void Update()
@@ -15,6 +15,19 @@ public class Inimigo: MonoBehaviour
         
         // Move o inimigo na direção do jogador
         transform.position = Vector2.MoveTowards(transform.position, jogador.position, velocidade * Time.deltaTime);
+    }*/
+    public Transform player; // Referência ao jogador
+    public float speed = 4f;
+    public float stopDistance = 1.5f; // Distância mínima para parar de perseguir
+
+    private void Update()
+    {
+        // Se o jogador estiver a uma distância maior que a stopDistance
+        if (Vector2.Distance(transform.position, player.position) > stopDistance)
+        {
+            // Move o inimigo na direção do jogador
+            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+        }
     }
 }
 
