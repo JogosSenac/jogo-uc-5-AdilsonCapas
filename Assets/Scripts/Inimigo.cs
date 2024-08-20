@@ -29,5 +29,14 @@ public class Inimigo: MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
     }
+
+    /*private void OnCollisionEnter2D(Collision2D other) 
+    {
+        if(other.gameObject.CompareTag("Obs"))
+        {
+            Destroy(other.gameObject);
+        }
+   }*/
+
 }
 

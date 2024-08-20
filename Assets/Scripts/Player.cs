@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     //O personagem deve ter uma animação de andar e idle
     //Ele deve morrar ao cair em um buraco
 
-    public float moveH;
+    /*public float moveH;
     public int velocidade;
     public int forcaPulo;
     private Rigidbody2D rb;
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
         if(!comVida)
         {
             SceneManager.LoadScene("Morte");
-        }*/
+        }
         
     }
 
@@ -99,13 +99,13 @@ public class Player : MonoBehaviour
             comVida = false;
             SceneManager.LoadScene("Morte");
         }
-        /*if(other.gameObject.CompareTag("Money"))
+        if(other.gameObject.CompareTag("Money"))
         {
             Destroy(other.gameObject);
             Money++;
-        }*/
+        
 
-    }
+    }*/
 
     //Como faria se quisesse fazer o player morrer ao cair no buraco?
 }
