@@ -7,13 +7,11 @@ public class Video : MonoBehaviour
 
     void Start()
     {
-        // Reproduz o vídeo ao iniciar
         videoPlayer.Play();
     }
 
     void Update()
     {
-        // Exemplo de controle de vídeo
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (videoPlayer.isPlaying)

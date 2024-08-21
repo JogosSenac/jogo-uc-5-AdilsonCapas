@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/IA.unity
     guid: 0f09957f9abb7204e8e46752042e22ad
+  - enabled: 1
+    path: Assets/Scenes/Mapa.unity
+    guid: b3133c54ef63cbf4dac812e3ad38d8d3
+  - enabled: 1
+    path: Assets/Scenes/Morte.unity
+    guid: 3f2e54aaf4adf6d4488689f27583dfde
   m_configObjects: {}

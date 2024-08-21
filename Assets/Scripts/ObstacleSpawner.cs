@@ -4,31 +4,48 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public GameObject obstaclePrefab; // Prefab do obstáculo a ser instanciado
-    public float spawnInterval = 2f;  // Intervalo de tempo entre as gerações
-    public float spawnRangeX = 10f;   // A faixa de posições X onde os obstáculos serão gerados
+    public GameObject[] obstaclePrefabs;
+    public Transform player;             
+    public float minSpawnInterval = 1f;  
+    public float maxSpawnInterval = 3f;  
+    public float spawnDistanceAhead = 10f; 
+    public float spawnRangeX = 5f;      
+    public float intervalDecreaseRate = 0.1f; 
 
     private float timeSinceLastSpawn;
+    private float currentSpawnInterval;
+    private float timeElapsed;
+
+    void Start()
+    {
+        currentSpawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
+    }
 
     void Update()
     {
         timeSinceLastSpawn += Time.deltaTime;
+        timeElapsed += Time.deltaTime;
 
-        if (timeSinceLastSpawn >= spawnInterval)
+        if (timeSinceLastSpawn >= currentSpawnInterval)
         {
             SpawnObstacle();
             timeSinceLastSpawn = 0f;
+
+            currentSpawnInterval = Mathf.Max(minSpawnInterval, currentSpawnInterval - intervalDecreaseRate * Time.deltaTime);
         }
     }
 
     void SpawnObstacle()
     {
-        // Calcula uma posição aleatória fora da tela no eixo X
-        float randomX = transform.position.x + Random.Range(-spawnRangeX, spawnRangeX);
-        Vector3 spawnPosition = new Vector3(randomX, transform.position.y, transform.position.z);
+        GameObject obstaclePrefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
 
-        // Instancia o obstáculo
-        Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
+        float spawnX = player.position.x + spawnDistanceAhead;
+        float randomXOffset = Random.Range(-spawnRangeX, spawnRangeX);
+        Vector3 spawnPosition = new Vector3(spawnX + randomXOffset, transform.position.y, transform.position.z);
+
+        GameObject newObstacle = Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
+
+        float randomScale = Random.Range(0.5f, 1.5f);
+        newObstacle.transform.localScale = new Vector3(randomScale, randomScale, 1f);
     }
 }
-

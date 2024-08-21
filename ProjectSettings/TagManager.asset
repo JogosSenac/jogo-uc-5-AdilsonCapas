@@ -7,6 +7,8 @@ TagManager:
   - Playerr
   - "Ch\xE3o"
   - Obs
+  - Inimigo
+  - Moeda
   layers:
   - Default
   - TransparentFX

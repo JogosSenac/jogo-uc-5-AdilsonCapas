@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TlLoop : MonoBehaviour
 {
-    public float mapWidth = 20f; // Largura do seu Tilemap
+    public float mapWidth = 20f;
 
     void Update()
     {
