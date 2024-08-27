@@ -9,4 +9,19 @@ public class Menu : MonoBehaviour
     {
         SceneManager.LoadScene("IA");
     }
+
+    public void Inicio()
+    {
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void Mapa()
+    {
+        SceneManager.LoadScene("Mapa");
+    }
+
+    public void Sair()
+    {
+        Application.Quit();
+    }
 }
